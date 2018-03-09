@@ -120,7 +120,7 @@ func fork(daemon, isUpdate bool) {
 
 func update() {
 	// 执行程序本身
-	name := os.Args[0]
+	name, _ := exec.LookPath(os.Args[0])
 	for {
 		time.Sleep(gCheckUpdateInterval)
 		fi, err := os.Stat(name)
